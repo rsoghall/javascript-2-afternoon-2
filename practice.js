@@ -52,7 +52,7 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 */
 
 function looper(family){
-  for (var i=0; i<family.length; i++){
+  for (i=0; i<family.length; i++){
     alert(family[i])
   }
 
@@ -72,7 +72,7 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 */
 
 function reversedLooper(letters){
-  for(var i=letters.length-1; i>=0; i--){
+  for(i=letters.length-1; i>=0; i--){
     alert(letters[i])
   }
 }
@@ -91,8 +91,8 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 */
 
 function evenFinder(nums){
-  var evens=[];
-  for(var i =0; i<nums.length; i++){
+  let evens=[];
+  for(i =0; i<nums.length; i++){
     if(nums[i]%2===0){
       evens.push(nums[i])
 
@@ -125,12 +125,43 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 /*
   Write a function called divider that is given one argument, numbersArray.
-  Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
+  Have divider return an Array with the first item in the array being the evens array 
+  (all the even values from numbersArray) and the second item in the Array being the 
+  odds array (all the odd values from numbersArray).
 */
 
-//Code Here
+function divider(numbersArray){
+  let evens=[];
+  for(i =0; i<numbersArray.length; i++){
+    if(numbersArray[i]%2===0){
+      evens.push(numbersArray[i])
+      
 
+    }
+}
+let odds=[];
+for(i=0; i<numbersArray.length; i++){
+  if(numbersArray[i] %2 !=0){
+    odds.push(numbersArray[i])
+  }
+}
+return [evens,odds]
+}
+divider(numbersArray)
 
+/// *** filter solution ***
+
+// function divider(numbersArray){
+//   evens = numbersArray.filter(function(number){
+//   		return number % 2 === 0;
+//   });
+//   odds = numbersArray.filter(function(number){
+//   		return number % 2 !== 0;
+//   });
+//   return [evens,odds];
+// }
+
+// divider(numbersArray)
 
 ////////// PROBLEM 7 //////////
 
@@ -142,15 +173,26 @@ var getRandomArbitrary = function() {
 
 /* 
   var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-  Above you're given a function that will return a random number between 0 and 30. There is also a commented out array full of numbers to help you visualize what your function will be receiving.
+  Above you're given a function that will return a random number between 0 and 30. 
+  There is also a commented out array full of numbers to help you visualize what 
+  your function will be receiving.
   Write a function named finder that will take in an array as an argument.
   It will then  get a random number (by invoking getRandomArbitrary).
   Loop through the array to see if that random number is in the array. 
   If it is, return true, if it's not, return false
 */
-
-//Code Here
-
+// let arr = [0,1,2,5,9,10,15,17,22,24,29,30]
+function finder(arr){
+  let randomNumber = getRandomArbitrary()
+  for (i=0;i<arr.length;i++){
+    if(arr[i]=== randomNumber){
+      return true
+    }
+    
+  }
+return false
+}
+finder(arr)
 
 
 ////////// PROBLEM 8 //////////
@@ -160,12 +202,16 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 // Do not edit the code above.
 
 /*
-  Here we're going to write a function that mimics going shopping and checking things off of our grocery list and adding new items to our list.
+  Here we're going to write a function that mimics going shopping and checking things off of our grocery list and 
+  adding new items to our list.
 
-  Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an item to remove from myGroceryList. 
-  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item from the your grocery list and return the new, updated grocery list.
+  Write a function called removeItem that is given two arguments, the first is myGroceryList, and the second is an
+   item to remove from myGroceryList. 
+  If the second argument (or the item to add or remove) matches an item in myGroceryList, remove that item
+  from the your grocery list and return the new, updated grocery list.
 
-  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList and the second is an item to add to your grocery list. 
+  Once you do that, write another function called addItem that is given two arguments, the first is myGroceryList 
+  and the second is an item to add to your grocery list. 
   In addItem add the item you passed in to myGroceryList then return the new, updated grocery list.
 
   In both removeItem and addItem check to see if the 'myGroceryList' and 'item' arguments are truthy.
@@ -178,17 +224,45 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   addItem() --> [];
 */
 
-//Code Here
+function removeItem(myGroceryList, item){
+  if(!myGroceryList || !item){
+    return []
+  }
+  for(i=0;i<myGroceryList.length;i++){
+    if(myGroceryList[i] === item){
+      myGroceryList.splice(i,1)
+    
+    }
+  }
+  return myGroceryList
+  
+}
+function addItem(myGroceryList, item){
+  if(!myGroceryList || !item){
+    return []
+  }
+  myGroceryList.push(item);
+  
+  return myGroceryList
+}
 
 
 
 ////////// PROBLEM 9 //////////
 
 /*
-  Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
+  Write a function called maker that creates an array, fills that array with numbers from 1 to 215, 
+  then returns the array.
 */
 
-//Code Here
+function maker(){
+  let arr = []
+  for(i=1;i<=215;i++){
+    arr.push(i)
+  }
+  return arr
+
+}
 
 
 
@@ -204,7 +278,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 */
   
-//Code Here
+function addTen(numbers){
+  let newArray = []
+  for(i=0; i<numbers.length; i++){
+    newArray.push(Number(numbers[i]))
+    newArray[i] += 10
+  }
+return newArray
+}
+addTen(numbers)
 
 
 
@@ -229,7 +311,14 @@ for(var i = 0; i < num2; i++){
   Return the array which is longest.
 */
 
-//Code Here
+function longer(arr1, arr2){
+  if(arr1.lenth > arr2.length){
+    return arr1
+  }else{
+    return arr2
+  }
+
+}
 
 
 
@@ -241,7 +330,9 @@ for(var i = 0; i < num2; i++){
   Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
-//Code Here
+function both(){
+  
+}
 
 
 
